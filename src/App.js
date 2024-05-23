@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import FunctionComponent from './components/FunctionComponent';
-import Gallery from './components/Gallery';
+import Gallery, { Profile } from './components/Gallery';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
           <FunctionComponent/>
           <Gallery/>
+          <Profile/>
         </p>
         <a
           className="App-link"
