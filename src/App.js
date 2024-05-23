@@ -2,10 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import FunctionComponent from './components/FunctionComponent';
 import Gallery, { Profile } from './components/Gallery';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
+    <Header/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
