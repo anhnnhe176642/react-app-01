@@ -1,0 +1,9 @@
+{
+    "movies": [
+      { "id": 1, "title": "Inception", "description": "A mind-bending thriller", "poster": "url_to_image" },
+      { "id": 2, "title": "Interstellar", "description": "A journey through space", "poster": "url_to_image" }
+    ],
+    "favorites": [],
+    "watch-later": []
+  }
+  
