@@ -1,9 +1,41 @@
 {
-    "movies": [
-      { "id": 1, "title": "Inception", "description": "A mind-bending thriller", "poster": "url_to_image" },
-      { "id": 2, "title": "Interstellar", "description": "A journey through space", "poster": "url_to_image" }
-    ],
-    "favorites": [],
-    "watch-later": []
-  }
-  
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "name": "Admin User",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "name": "User One",
+      "password": "user123",
+      "role": "user"
+    },
+    {
+      "username": "hello",
+      "name": "xin chao",
+      "password": "123",
+      "role": "user",
+      "id": 3
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "description": "A mind-bending thriller",
+      "poster": "url_to_image"
+    },
+    {
+      "id": 2,
+      "title": "Interstellar",
+      "description": "A journey through space",
+      "poster": "url_to_image"
+    }
+  ],
+  "favorites": [],
+  "watch-later": []
+}
