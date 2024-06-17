@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
 import { AuthProvider } from "./context/AuthContext";
+import UserProfile from "./components/UserProfile";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/account" element={<UserAccountPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
           </Routes>
         </div>
       </Router>
