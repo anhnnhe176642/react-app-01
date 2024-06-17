@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { MovieContext } from '../context/MovieContext';
-import MovieCard from '../components/MovieCard';
-import SearchBar from '../components/SearchBar';
+import React, { useContext } from "react";
+import { MovieContext } from "../context/MovieContext";
+import MovieCard from "../components/MovieCard";
+import SearchBar from "../components/SearchBar";
 
 function HomePage() {
   const { movies, searchResults, handleSearch } = useContext(MovieContext);
@@ -10,9 +10,8 @@ function HomePage() {
 
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />
       <div className="movie-list">
-        {displayMovies.map(movie => (
+        {displayMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>

@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
+import SearchBar from "./SearchBar";
+import { MovieContext } from "../context/MovieContext";
 
 const Header = () => {
+  const { handleSearch } = useContext(MovieContext);
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -19,6 +22,7 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
+        <SearchBar onSearch={handleSearch} />
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/">
             Home
@@ -41,15 +45,6 @@ const Header = () => {
             </>
           )}
         </Nav>
-        <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="mr-2"
-            aria-label="Search"
-          />
-          <Button variant="outline-success">Search</Button>
-        </Form>
       </Navbar.Collapse>
     </Navbar>
   );
