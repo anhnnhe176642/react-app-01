@@ -1,23 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getMovies, deleteMovie } from "../services/api";
+import { getMovies, getActors, deleteMovie } from "../services/api";
 import AdminSidebar from "../components/AdminSidebar";
 
 const AdminMoviesPage = () => {
   const [movies, setMovies] = useState([]);
+  const [actors, setActors] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await getMovies();
       setMovies(response.data);
     };
+
+    const fetchActors = async () => {
+      const response = await getActors();
+      setActors(response.data);
+    };
+
     fetchMovies();
+    fetchActors();
   }, []);
 
   const handleDelete = async (id) => {
     await deleteMovie(id);
     setMovies(movies.filter((movie) => movie.id !== id));
+  };
+
+  const getActorNames = (actorIds) => {
+    return actorIds
+      .map((id) => {
+        const actor = actors.find((actor) => actor.id === id);
+        return actor ? actor.name : "Unknown";
+      })
+      .join(", ");
   };
 
   return (
@@ -53,7 +70,7 @@ const AdminMoviesPage = () => {
                 <td>{movie.title}</td>
                 <td>{movie.description}</td>
                 <td>{movie.imgUrl}</td>
-                <td>{movie.actors}</td>
+                <td>{getActorNames(movie.actors)}</td>
                 <td>{movie.genre}</td>
                 <td>{movie.rating}</td>
                 <td>

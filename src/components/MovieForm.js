@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   getGenres,
+  getActors,
   addMovie,
   updateMovie,
   getMovieById,
@@ -15,18 +16,26 @@ const MovieForm = () => {
     title: "",
     description: "",
     imgUrl: "",
-    actors: "",
+    actors: [],
     genre: "",
     rating: "",
   });
   const [genres, setGenres] = useState([]);
+  const [actors, setActors] = useState([]);
 
   useEffect(() => {
     const fetchGenres = async () => {
       const response = await getGenres();
       setGenres(response.data);
     };
+
+    const fetchActors = async () => {
+      const response = await getActors();
+      setActors(response.data);
+    };
+
     fetchGenres();
+    fetchActors();
 
     if (id) {
       const fetchMovie = async () => {
@@ -38,7 +47,15 @@ const MovieForm = () => {
   }, [id]);
 
   const handleChange = (e) => {
-    setMovie({ ...movie, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "actors") {
+      const selectedActors = Array.from(e.target.selectedOptions, (option) =>
+        parseInt(option.value)
+      );
+      setMovie({ ...movie, [name]: selectedActors });
+    } else {
+      setMovie({ ...movie, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -86,12 +103,19 @@ const MovieForm = () => {
       <Form.Group controlId="formActors">
         <Form.Label>Actors</Form.Label>
         <Form.Control
-          type="text"
+          as="select"
+          multiple
           name="actors"
           value={movie.actors}
           onChange={handleChange}
           required
-        />
+        >
+          {actors.map((actor) => (
+            <option key={actor.id} value={actor.id}>
+              {actor.name}
+            </option>
+          ))}
+        </Form.Control>
       </Form.Group>
       <Form.Group controlId="formGenre">
         <Form.Label>Genre</Form.Label>

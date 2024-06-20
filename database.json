@@ -25,31 +25,42 @@
   "movies": [
     {
       "id": 1,
-      "title": "Movie 1",
-      "description": "Description for movie 1",
-      "imgUrl": "https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045-2.jpg",
-      "actors": "Actor 1, Actor 2",
+      "title": "Movie Title",
+      "description": "Movie Description",
+      "imgUrl": "http://image.url",
+      "actors": [1, 2],
       "genre": "Action",
-      "rating": 8
+      "rating": 8.5
+    }
+  ],
+  "actors": [
+    {
+      "id": 1,
+      "name": "Actor Name",
+      "dateOfBirth": "1970-01-01",
+      "biography": "Short biography",
+      "profilePictureUrl": "http://image.url"
     },
     {
       "id": 2,
-      "title": "Movie 2",
-      "description": "Description for movie 2",
-      "imgUrl": "http://example.com/movie2.jpg",
-      "actors": "Actor 3, Actor 4",
-      "genre": "Comedy",
-      "rating": 7
+      "name": "Another Actor",
+      "dateOfBirth": "1980-01-01",
+      "biography": "Another biography",
+      "profilePictureUrl": "http://anotherimage.url"
     }
   ],
   "genres": [
     {
-      "id": 1,
-      "name": "Action"
-    },
-    {
       "id": 2,
       "name": "Comedy"
+    },
+    {
+      "name": "aaaaaaaaaaaaaaaa",
+      "id": 3
+    },
+    {
+      "name": "bbbbbbbbbbbbbbb",
+      "id": 4
     }
   ],
   "favorites": [],
