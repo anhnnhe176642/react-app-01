@@ -11,6 +11,9 @@ const AdminSidebar = () => {
       <Nav.Link as={Link} to="/admin/genres">
         Manage Genres
       </Nav.Link>
+      <Nav.Link as={Link} to="/admin/actors">
+        Manage Actors
+      </Nav.Link>
     </Nav>
   );
 };
