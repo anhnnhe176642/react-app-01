@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import FavoritesPage from "./pages/FavoritesPage";
@@ -8,7 +8,7 @@ import UserAccountPage from "./pages/UserAccountPage";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthContext, AuthProvider } from "./context/AuthContext";
 import UserProfile from "./components/UserProfile";
 import EditProfile from "./components/EditProfile";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -19,6 +19,12 @@ import GenreForm from "./components/GenreForm";
 import AdminActorsPage from "./pages/AdminActorsPage";
 import ActorForm from "./components/ActorForm";
 import { Container } from "react-bootstrap";
+
+const ProtectedRoute = ({ children }) => {
+  const { user } = useContext(AuthContext);
+  return user && user.role === 'admin' ? children : <Navigate to="/" />;
+};
+
 
 function App() {
   return (
@@ -37,16 +43,16 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<UserProfile />} />
               <Route path="/edit-profile" element={<EditProfile />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/admin/movies" element={<AdminMoviesPage />} />
-              <Route path="/admin/movies/add" element={<MovieForm />} />
-              <Route path="/admin/movies/edit/:id" element={<MovieForm />} />
-              <Route path="/admin/genres" element={<AdminGenresPage />} />
-              <Route path="/admin/genres/add" element={<GenreForm />} />
-              <Route path="/admin/genres/edit/:id" element={<GenreForm />} />
-              <Route path="/admin/actors" element={<AdminActorsPage />} />
-              <Route path="/admin/actors/add" element={<ActorForm />} />
-              <Route path="/admin/actors/edit/:id" element={<ActorForm />} />
+              <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+              <Route path="/admin/movies" element={<ProtectedRoute><AdminMoviesPage /></ProtectedRoute>} />
+              <Route path="/admin/movies/add" element={<ProtectedRoute><MovieForm /></ProtectedRoute>} />
+              <Route path="/admin/movies/edit/:id" element={<ProtectedRoute><MovieForm /></ProtectedRoute>} />
+              <Route path="/admin/genres" element={<ProtectedRoute><AdminGenresPage /></ProtectedRoute>} />
+              <Route path="/admin/genres/add" element={<ProtectedRoute><GenreForm /></ProtectedRoute>} />
+              <Route path="/admin/genres/edit/:id" element={<ProtectedRoute><GenreForm /></ProtectedRoute>} />
+              <Route path="/admin/actors" element={<ProtectedRoute><AdminActorsPage /></ProtectedRoute>} />
+              <Route path="/admin/actors/add" element={<ProtectedRoute><ActorForm /></ProtectedRoute>} />
+              <Route path="/admin/actors/edit/:id" element={<ProtectedRoute><ActorForm /></ProtectedRoute>} />
             </Routes>
           </div>
         </Router>
