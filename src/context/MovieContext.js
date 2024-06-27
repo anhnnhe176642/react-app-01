@@ -8,6 +8,7 @@ const MovieProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [watchLater, setWatchLater] = useState([]);
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:9999/movies')
@@ -31,6 +32,14 @@ const MovieProvider = ({ children }) => {
         setWatchLater(response.data);
       })
       .catch(error => console.error('Error fetching watch later movies:', error));
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:9999/genres')
+      .then(response => {
+        setGenres(response.data);
+      })
+      .catch(error => console.error('Error fetching genres:', error));
   }, []);
 
   const handleSearch = (query) => {
@@ -74,13 +83,12 @@ const MovieProvider = ({ children }) => {
 
   return (
     <MovieContext.Provider value={{
-      movies, searchResults, favorites, watchLater, handleSearch,
-      addToFavorites, addToWatchLater, removeFromFavorites, removeFromWatchLater
+      movies, searchResults, setSearchResults, favorites, watchLater, genres,
+      handleSearch, addToFavorites, addToWatchLater, removeFromFavorites, removeFromWatchLater
     }}>
       {children}
     </MovieContext.Provider>
   );
 };
-
 
 export { MovieProvider, MovieContext };

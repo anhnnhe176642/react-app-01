@@ -1,21 +1,24 @@
 import React, { useContext } from "react";
+import { Container, Row, Col } from 'react-bootstrap';
 import { MovieContext } from "../context/MovieContext";
 import MovieCard from "../components/MovieCard";
-import SearchBar from "../components/SearchBar";
+import './HomePage.css';
 
 function HomePage() {
-  const { movies, searchResults, handleSearch } = useContext(MovieContext);
+  const { movies, searchResults } = useContext(MovieContext);
 
   const displayMovies = searchResults.length > 0 ? searchResults : movies;
 
   return (
-    <div>
-      <div className="movie-list">
+    <Container>
+      <Row>
         {displayMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+            <MovieCard movie={movie} />
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 

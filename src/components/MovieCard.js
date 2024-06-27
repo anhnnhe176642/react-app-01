@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
+import { MovieContext } from '../context/MovieContext';
 
 function MovieCard({ movie }) {
+  const { genres } = useContext(MovieContext);
+  const genre = genres.find(g => g.id === movie.genreId);
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={movie.poster} />
-      <Card.Body>
+    <Card className="movie-card">
+      <Card.Img variant="top" src={movie.imgUrl} className="card-img-top" />
+      <Card.Body className="card-body">
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>
-          {movie.description}
+          Genre: {genre ? genre.name : 'UnKnow'}
+        </Card.Text>
+        <Card.Text>
+          Rating: {movie.rating}
         </Card.Text>
       </Card.Body>
     </Card>
