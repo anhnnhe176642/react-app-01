@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from "react-bootstrap";
 import { MovieContext } from "../context/MovieContext";
 import MovieCard from "../components/MovieCard";
-import './HomePage.css';
+import "./HomePage.css";
+import Sidebar from "../components/Sidebar";
 
 function HomePage() {
   const { movies, searchResults } = useContext(MovieContext);
@@ -12,11 +13,18 @@ function HomePage() {
   return (
     <Container>
       <Row>
-        {displayMovies.map((movie) => (
-          <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-            <MovieCard movie={movie} />
-          </Col>
-        ))}
+        <Col xs={2}>
+          <Sidebar />
+        </Col>
+        <Col xs={10}>
+          <Row>
+            {displayMovies.map((movie) => (
+              <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                <MovieCard movie={movie} />
+              </Col>
+            ))}
+          </Row>
+        </Col>
       </Row>
     </Container>
   );

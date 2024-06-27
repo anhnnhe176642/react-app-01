@@ -37,11 +37,7 @@ function App() {
       <Container>
         <Router>
           <Header />
-          <div className="row">
-            <div className="col-md-2">
-              <Sidebar />
-            </div>
-            <div className="col-md-10">
+            <div>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/movie/:id" element={<MovieDetailPage />} />
@@ -64,7 +60,6 @@ function App() {
                 <Route path="/admin/actors/edit/:id" element={<ProtectedRoute><ActorForm /></ProtectedRoute>} />
               </Routes>
             </div>
-          </div>
         </Router>
       </Container>
     </AuthProvider>
