@@ -67,7 +67,7 @@ const Sidebar = () => {
               type="checkbox" 
               label={genre.name} 
               value={genre.id} 
-              onClick={handleGenreChange} 
+              onChange={handleGenreChange} 
             />
           ))}
         </Form.Group>
@@ -80,14 +80,14 @@ const Sidebar = () => {
               type="checkbox" 
               label={actor.name} 
               value={actor.id} 
-              onClick={handleActorChange} 
+              onChange={handleActorChange} 
             />
           ))}
         </Form.Group>
 
         <Form.Group controlId="formRating">
           <Form.Label>Rating</Form.Label>
-          <Form.Control type="number" value={rating} onClick={handleRatingChange} />
+          <Form.Control type="number" value={rating} onChange={handleRatingChange} />
         </Form.Group>
       </Form>
     </div>

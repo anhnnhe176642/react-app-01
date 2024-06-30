@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import React from "react";
+import { Form, FormControl, Button, Row, Col } from "react-bootstrap";
 
 function SearchBar({ onSearch }) {
   const handleSearch = (event) => {
@@ -10,8 +10,21 @@ function SearchBar({ onSearch }) {
 
   return (
     <Form onSubmit={handleSearch}>
-      <FormControl type="text" name="query" placeholder="Search" className="mr-sm-2" />
-      <Button type="submit" variant="outline-success">Search</Button>
+      <Row>
+        <Col>
+          <FormControl
+            type="text"
+            name="query"
+            placeholder="Search"
+            className="mr-sm-2"
+          />
+        </Col>
+        <Col>
+          <Button type="submit" variant="outline-success">
+            Search
+          </Button>
+        </Col>
+      </Row>
     </Form>
   );
 }

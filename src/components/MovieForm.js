@@ -17,7 +17,7 @@ const MovieForm = () => {
     description: "",
     imgUrl: "",
     actors: [],
-    genre: "",
+    genreId: 0,
     rating: "",
   });
   const [genres, setGenres] = useState([]);
@@ -53,6 +53,8 @@ const MovieForm = () => {
         parseInt(option.value)
       );
       setMovie({ ...movie, [name]: selectedActors });
+    } else if (name === "genreId") {
+      setMovie({ ...movie, [name]: +value });
     } else {
       setMovie({ ...movie, [name]: value });
     }
@@ -121,14 +123,14 @@ const MovieForm = () => {
         <Form.Label>Genre</Form.Label>
         <Form.Control
           as="select"
-          name="genre"
-          value={movie.genre}
+          name="genreId"
+          value={movie.genreId}
           onChange={handleChange}
           required
         >
           <option value="">Select Genre</option>
           {genres.map((genre) => (
-            <option key={genre.id} value={genre.name}>
+            <option key={genre.id} value={genre.id}>
               {genre.name}
             </option>
           ))}
