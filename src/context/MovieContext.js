@@ -1,5 +1,5 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const MovieContext = createContext();
 
@@ -11,81 +11,118 @@ const MovieProvider = ({ children }) => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:9999/movies')
-      .then(response => {
+    const fetchMovies = async () => {
+      try {
+        const response = await axios.get("http://localhost:9999/movies");
         setMovies(response.data);
-      })
-      .catch(error => console.error('Error fetching movies:', error));
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+      }
+    };
+    fetchMovies();
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:9999/favorites')
-      .then(response => {
+    const fetchFavorites = async () => {
+      try {
+        const response = await axios.get("http://localhost:9999/favorites");
         setFavorites(response.data);
-      })
-      .catch(error => console.error('Error fetching favorites:', error));
+      } catch (error) {
+        console.error("Error fetching favorites:", error);
+      }
+    };
+    fetchFavorites();
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:9999/watch-later')
-      .then(response => {
+    const fetchWatchLater = async () => {
+      try {
+        const response = await axios.get("http://localhost:9999/watch-later");
         setWatchLater(response.data);
-      })
-      .catch(error => console.error('Error fetching watch later movies:', error));
+      } catch (error) {
+        console.error("Error fetching watch later movies:", error);
+      }
+    };
+    fetchWatchLater();
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:9999/genres')
-      .then(response => {
+    const fetchGenres = async () => {
+      try {
+        const response = await axios.get("http://localhost:9999/genres");
         setGenres(response.data);
-      })
-      .catch(error => console.error('Error fetching genres:', error));
+      } catch (error) {
+        console.error("Error fetching genres:", error);
+      }
+    };
+    fetchGenres();
   }, []);
 
   const handleSearch = (query) => {
-    const results = movies.filter(movie =>
+    const results = movies.filter((movie) =>
       movie.title.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(results);
   };
 
-  const addToFavorites = (movie) => {
-    axios.post('http://localhost:9999/favorites', movie)
-      .then(response => {
-        setFavorites([...favorites, response.data]);
-      })
-      .catch(error => console.error('Error adding to favorites:', error));
+  const addToFavorites = async (movie) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:9999/favorites",
+        movie
+      );
+      setFavorites([...favorites, response.data]);
+    } catch (error) {
+      console.error("Error adding to favorites:", error);
+    }
   };
 
-  const addToWatchLater = (movie) => {
-    axios.post('http://localhost:9999/watch-later', movie)
-      .then(response => {
-        setWatchLater([...watchLater, response.data]);
-      })
-      .catch(error => console.error('Error adding to watch later:', error));
+  const addToWatchLater = async (movie) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:9999/watch-later",
+        movie
+      );
+      setWatchLater([...watchLater, response.data]);
+    } catch (error) {
+      console.error("Error adding to watch later:", error);
+    }
   };
 
-  const removeFromFavorites = (id) => {
-    axios.delete(`http://localhost:9999/favorites/${id}`)
-      .then(() => {
-        setFavorites(favorites.filter(movie => movie.id !== id));
-      })
-      .catch(error => console.error('Error removing from favorites:', error));
+  const removeFromFavorites = async (id) => {
+    try {
+      await axios.delete(`http://localhost:9999/favorites/${id}`);
+      setFavorites(favorites.filter((movie) => movie.id !== id));
+    } catch (error) {
+      console.error("Error removing from favorites:", error);
+    }
   };
 
-  const removeFromWatchLater = (id) => {
-    axios.delete(`http://localhost:9999/watch-later/${id}`)
-      .then(() => {
-        setWatchLater(watchLater.filter(movie => movie.id !== id));
-      })
-      .catch(error => console.error('Error removing from watch later:', error));
+  const removeFromWatchLater = async (id) => {
+    try {
+      await axios.delete(`http://localhost:9999/watch-later/${id}`);
+      setWatchLater(watchLater.filter((movie) => movie.id !== id));
+    } catch (error) {
+      console.error("Error removing from watch later:", error);
+    }
   };
 
   return (
-    <MovieContext.Provider value={{
-      movies, searchResults, setSearchResults, favorites, watchLater, genres,
-      handleSearch, addToFavorites, addToWatchLater, removeFromFavorites, removeFromWatchLater
-    }}>
+    <MovieContext.Provider
+      value={{
+        movies,
+        searchResults,
+        setSearchResults,
+        favorites,
+        watchLater,
+        genres,
+        handleSearch,
+        addToFavorites,
+        addToWatchLater,
+        removeFromFavorites,
+        removeFromWatchLater,
+      }}
+    >
       {children}
     </MovieContext.Provider>
   );

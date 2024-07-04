@@ -40,7 +40,7 @@ function App() {
             <div>
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/movie/:id" element={<MovieDetailPage />} />
+                <Route path="/movies/:id" element={<MovieDetailPage />} />
                 <Route path="/favorites" element={<FavoritesPage />} />
                 <Route path="/watch-later" element={<WatchLaterPage />} />
                 <Route path="/account" element={<UserAccountPage />} />
