@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { MovieContext } from '../context/MovieContext';
 import MovieCard from '../components/MovieCard';
+import ActorCard from '../components/ActorCard';  // Import ActorCard
 
 function MovieDetailPage() {
   const { id } = useParams();
@@ -63,10 +64,10 @@ function MovieDetailPage() {
   return (
     <div className="container mt-4">
       <Row>
-        <Col md={4}>
-          <img src={movie.imgUrl} alt={movie.title} className="img-fluid" />
+        <Col md={6}>
+          <img src={movie.imgUrl} alt={movie.title} style={{width:500}} className="img-fluid" />
         </Col>
-        <Col md={8}>
+        <Col md={6}>
           <h2>{movie.title}</h2>
           <p><strong>Genre:</strong> {genre ? genre.name : 'Unknown'}</p>
           <p><strong>Description:</strong> {movie.description}</p>
@@ -79,13 +80,7 @@ function MovieDetailPage() {
           const actor = actors.find(a => a.id === actorId);
           return actor ? (
             <Col md={3} key={actor.id} className="mb-4">
-              <Card>
-                <Card.Img variant="top" src={actor.profilePictureUrl} />
-                <Card.Body>
-                  <Card.Title>{actor.name}</Card.Title>
-                  <Card.Text>{actor.biography}</Card.Text>
-                </Card.Body>
-              </Card>
+              <ActorCard actor={actor} /> 
             </Col>
           ) : null;
         })}

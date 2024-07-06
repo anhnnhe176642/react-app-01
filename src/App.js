@@ -25,6 +25,7 @@ import AdminActorsPage from "./pages/AdminActorsPage";
 import ActorForm from "./components/ActorForm";
 import { Container } from "react-bootstrap";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
@@ -61,6 +62,7 @@ function App() {
               </Routes>
             </div>
         </Router>
+        <Footer />
       </Container>
     </AuthProvider>
   );

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { MovieContext } from '../context/MovieContext';
 import axios from 'axios';
+import './Sidebar.css'; 
 
 const Sidebar = () => {
   const { movies, setSearchResults } = useContext(MovieContext);
