@@ -1,5 +1,6 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "./AuthContext"; // Import AuthContext
 
 const MovieContext = createContext();
 
@@ -9,6 +10,7 @@ const MovieProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [watchLater, setWatchLater] = useState([]);
   const [genres, setGenres] = useState([]);
+  const { user } = useContext(AuthContext); // Get the current user from AuthContext
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -66,44 +68,36 @@ const MovieProvider = ({ children }) => {
   };
 
   const addToFavorites = async (movie) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:9999/favorites",
-        movie
-      );
-      setFavorites([...favorites, response.data]);
-    } catch (error) {
-      console.error("Error adding to favorites:", error);
+    if (!user) return;
+
+    const userId = user.id;
+    const exists = favorites.some(fav => fav.movieId === movie.id && fav.userId === userId);
+
+    if (!exists) {
+      try {
+        const response = await axios.post(
+          "http://localhost:9999/favorites",
+          { userId, movieId: movie.id }
+        );
+        setFavorites([...favorites, response.data]);
+      } catch (error) {
+        console.error("Error adding to favorites:", error);
+      }
     }
   };
 
-  const addToWatchLater = async (movie) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:9999/watch-later",
-        movie
-      );
-      setWatchLater([...watchLater, response.data]);
-    } catch (error) {
-      console.error("Error adding to watch later:", error);
-    }
-  };
+  const removeFromFavorites = async (movieId) => {
+    if (!user) return;
 
-  const removeFromFavorites = async (id) => {
+    const userId = user.id;
     try {
-      await axios.delete(`http://localhost:9999/favorites/${id}`);
-      setFavorites(favorites.filter((movie) => movie.id !== id));
+      const favorite = favorites.find(fav => fav.movieId === movieId && fav.userId === userId);
+      if (favorite) {
+        await axios.delete(`http://localhost:9999/favorites/${favorite.id}`);
+        setFavorites(favorites.filter(fav => fav.id !== favorite.id));
+      }
     } catch (error) {
       console.error("Error removing from favorites:", error);
-    }
-  };
-
-  const removeFromWatchLater = async (id) => {
-    try {
-      await axios.delete(`http://localhost:9999/watch-later/${id}`);
-      setWatchLater(watchLater.filter((movie) => movie.id !== id));
-    } catch (error) {
-      console.error("Error removing from watch later:", error);
     }
   };
 
@@ -118,9 +112,7 @@ const MovieProvider = ({ children }) => {
         genres,
         handleSearch,
         addToFavorites,
-        addToWatchLater,
         removeFromFavorites,
-        removeFromWatchLater,
       }}
     >
       {children}

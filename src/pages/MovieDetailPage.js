@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { MovieContext } from '../context/MovieContext';
+import { AuthContext } from '../context/AuthContext';
 import MovieCard from '../components/MovieCard';
-import ActorCard from '../components/ActorCard';  // Import ActorCard
+import ActorCard from '../components/ActorCard';
 
 function MovieDetailPage() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [actors, setActors] = useState([]);
   const [relatedMovies, setRelatedMovies] = useState([]);
-  const { genres } = useContext(MovieContext);
+  const { genres, addToFavorites, removeFromFavorites, favorites } = useContext(MovieContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -60,6 +62,7 @@ function MovieDetailPage() {
   }
 
   const genre = genres.find(g => g.id === movie.genreId);
+  const isFavorite = user && favorites.some(fav => fav.movieId === movie.id && fav.userId === user.id);
 
   return (
     <div className="container mt-4">
@@ -72,6 +75,11 @@ function MovieDetailPage() {
           <p><strong>Genre:</strong> {genre ? genre.name : 'Unknown'}</p>
           <p><strong>Description:</strong> {movie.description}</p>
           <p><strong>Rating:</strong> {movie.rating}</p>
+          {isFavorite ? (
+            <Button onClick={() => removeFromFavorites(movie.id)}>Remove from Favorites</Button>
+          ) : (
+            <Button onClick={() => addToFavorites(movie)}>Add to Favorites</Button>
+          )}
         </Col>
       </Row>
       <h3 className="mt-4">Actors</h3>

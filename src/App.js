@@ -49,6 +49,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<UserProfile />} />
                 <Route path="/edit-profile" element={<EditProfile />} />
+                <Route path="/favorites" element={<FavoritesPage/>} />
                 <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
                 <Route path="/admin/movies" element={<ProtectedRoute><AdminMoviesPage /></ProtectedRoute>} />
                 <Route path="/admin/movies/add" element={<ProtectedRoute><MovieForm /></ProtectedRoute>} />
