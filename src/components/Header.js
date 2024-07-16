@@ -21,7 +21,10 @@ const Header = () => {
         Movie Database
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
+      <Navbar.Collapse
+        id="basic-navbar-nav"
+        className="justify-content-between"
+      >
         <SearchBar onSearch={handleSearch} />
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/">
@@ -29,6 +32,9 @@ const Header = () => {
           </Nav.Link>
           {user ? (
             <>
+              <Nav.Link as={Link} to="/favorites">
+                Favorites
+              </Nav.Link>
               <Nav.Link as={Link} to="/profile">
                 Profile
               </Nav.Link>

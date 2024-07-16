@@ -26,15 +26,17 @@ const MovieProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchFavorites = async () => {
+      if (!user) return;
+      const userId = user.id;
       try {
         const response = await axios.get("http://localhost:9999/favorites");
-        setFavorites(response.data);
+        setFavorites(response.data.filter(f=>f.userId===userId));
       } catch (error) {
         console.error("Error fetching favorites:", error);
       }
     };
     fetchFavorites();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     const fetchWatchLater = async () => {
