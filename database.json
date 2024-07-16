@@ -20,27 +20,34 @@
       "password": "123",
       "role": "user",
       "id": 3
+    },
+    {
+      "id": 4,
+      "username": "user4",
+      "name": "user 4",
+      "password": "1234",
+      "role": "user"
     }
   ],
   "movies": [
     {
       "id": 1,
-      "title": "The Grand Adventure",
-      "description": "An epic journey through unknown lands.",
-      "imgUrl": "https://picsum.photos/id/1/200/200",
+      "title": "The Grand Adventure8",
+      "description": "An epic journey through unknown lands.8",
+      "imgUrl": "https://pyxis.nymag.com/v1/imgs/554/69b/97ae591b1ea1675646e7f1f45a670a5e02-greatest-westerns-updated-dec-2020-lede-.rhorizontal.w1100.jpg",
       "actors": [
         1,
         2,
         3
       ],
-      "genreId": 1,
-      "rating": 8.7
+      "genreId": 3,
+      "rating": "8.8"
     },
     {
       "id": 2,
       "title": "Romantic Escape",
       "description": "A heartwarming love story.",
-      "imgUrl": "https://picsum.photos/id/2/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtW1n_OitFWJ1gU0nZSmTEnpZ5X7arUQvMmA&s",
       "actors": [
         4,
         5,
@@ -53,7 +60,7 @@
       "id": 3,
       "title": "Space Wars",
       "description": "An intergalactic battle for the universe.",
-      "imgUrl": "https://picsum.photos/id/3/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFhrZI0EqSXXwcHrM6kv87xWFgJu-m0Aqwww&s",
       "actors": [
         7,
         8,
@@ -66,7 +73,7 @@
       "id": 4,
       "title": "Mystery Mansion",
       "description": "A thrilling mystery in an old mansion.",
-      "imgUrl": "https://picsum.photos/id/4/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShqYW131b1mh-2A8V2ES5gRWv3s6iDheDTjw&s",
       "actors": [
         10,
         11,
@@ -79,7 +86,7 @@
       "id": 5,
       "title": "The Last Hero",
       "description": "A hero's final battle to save the world.",
-      "imgUrl": "https://picsum.photos/id/5/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv9WG7fW5KPot7UgfXcdC5_V0xyhlqlahXtA&s",
       "actors": [
         13,
         14,
@@ -92,7 +99,7 @@
       "id": 6,
       "title": "Fantasy Island",
       "description": "A magical adventure on a hidden island.",
-      "imgUrl": "https://picsum.photos/id/6/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52N8NqZPn8R4c6gHe_Sv8cd5M9u-xspszZw&s",
       "actors": [
         16,
         17,
@@ -105,7 +112,7 @@
       "id": 7,
       "title": "Spy Games",
       "description": "A high-stakes espionage thriller.",
-      "imgUrl": "https://picsum.photos/id/7/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSWkq3dfdjwdi4AqQUDL62aoUOfmvp1nX5wQ&s",
       "actors": [
         19,
         20,
@@ -118,7 +125,7 @@
       "id": 8,
       "title": "Love in Paris",
       "description": "A romantic drama set in Paris.",
-      "imgUrl": "https://picsum.photos/id/8/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLMfn2p1-feprJ73Rfdb_06jM982PuIjQT1A&s",
       "actors": [
         22,
         23,
@@ -131,7 +138,7 @@
       "id": 9,
       "title": "The Haunted Forest",
       "description": "A horror story in a haunted forest.",
-      "imgUrl": "https://picsum.photos/id/9/200/200",
+      "imgUrl": "https://spaces.filmstories.co.uk/uploads/2022/04/Avengers-Assemble.jpg",
       "actors": [
         25,
         26,
@@ -144,7 +151,7 @@
       "id": 10,
       "title": "Cyberpunk 2077",
       "description": "A futuristic action-packed adventure.",
-      "imgUrl": "https://picsum.photos/id/10/200/200",
+      "imgUrl": "https://insessionfilm.com/wp-content/uploads/2023/06/Marvel-Cinematic-Universe.jpeg",
       "actors": [
         28,
         29,
@@ -157,7 +164,7 @@
       "id": 11,
       "title": "Time Travel Mystery",
       "description": "A detective solves crimes across different timelines.",
-      "imgUrl": "https://picsum.photos/id/11/200/200",
+      "imgUrl": "https://tinybeans.com/wp-content/uploads/2022/06/free-movies-for-kids-on-youtube.png",
       "actors": [
         31,
         32,
@@ -170,7 +177,7 @@
       "id": 12,
       "title": "The Great Heist",
       "description": "A group of thieves plan the ultimate heist.",
-      "imgUrl": "https://picsum.photos/id/12/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT92XZSCnWyRyY4ktDmvTCqGPLKTF9ezQAmww&s",
       "actors": [
         34,
         35,
@@ -183,7 +190,7 @@
       "id": 13,
       "title": "Alien Invasion",
       "description": "Earth's fight for survival against alien invaders.",
-      "imgUrl": "https://picsum.photos/id/13/200/200",
+      "imgUrl": "https://deadline.com/wp-content/uploads/2023/04/harry-potter.jpg?w=681&h=383&crop=1",
       "actors": [
         37,
         38,
@@ -196,7 +203,7 @@
       "id": 14,
       "title": "City of Dreams",
       "description": "A drama about dreams and aspirations in a big city.",
-      "imgUrl": "https://picsum.photos/id/14/200/200",
+      "imgUrl": "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/05/2024-marvel-movies.jpg",
       "actors": [
         40,
         41,
@@ -209,7 +216,7 @@
       "id": 15,
       "title": "Zombie Apocalypse",
       "description": "Survivors fight against a zombie outbreak.",
-      "imgUrl": "https://picsum.photos/id/15/200/200",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52wXyYVK9cpBBHx2nxGunaZRIECBlnsCrtA&s",
       "actors": [
         43,
         44,
@@ -222,7 +229,7 @@
       "id": 16,
       "title": "Secret Agent",
       "description": "A spy's mission to uncover a global conspiracy.",
-      "imgUrl": "https://picsum.photos/id/16/200/200",
+      "imgUrl": "https://cdn.vox-cdn.com/thumbor/T_tNEPLs5OnD3iCgf3A4E99TfdA=/0x0:3840x1920/1200x675/filters:focal(1569x325:2183x939)/cdn.vox-cdn.com/uploads/chorus_image/image/73187292/RE_City_Hunter_n_00_02_58_03.jpg_RE_City_Hunter_n_00_02_58_03.12.jpg",
       "actors": [
         46,
         47,
@@ -235,7 +242,7 @@
       "id": 17,
       "title": "Underwater World",
       "description": "Adventures beneath the ocean's surface.",
-      "imgUrl": "https://picsum.photos/id/17/200/200",
+      "imgUrl": "https://www.purina.co.nz/sites/default/files/styles/ttt_image_510/public/2020-11/Find-the-Perfect-Dog-Name-for-the-New-Puppy-in-Your-Life2.jpg?itok=Gj1nuUOk",
       "actors": [
         49,
         50,
@@ -248,7 +255,7 @@
       "id": 18,
       "title": "Lost in Space",
       "description": "A crew's struggle to return home from space.",
-      "imgUrl": "https://picsum.photos/id/18/200/200",
+      "imgUrl": "https://variety.com/wp-content/uploads/2024/03/MCDGOXK_WB009.jpg?w=1000&h=667&crop=1",
       "actors": [
         52,
         53,
@@ -261,7 +268,7 @@
       "id": 19,
       "title": "The Artist's Journey",
       "description": "A story about the trials and triumphs of an artist.",
-      "imgUrl": "https://picsum.photos/id/19/200/200",
+      "imgUrl": "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/10/1/959168/Phim-Tren-Fox-Movies.jpg",
       "actors": [
         55,
         56,
@@ -274,7 +281,7 @@
       "id": 20,
       "title": "Wild West",
       "description": "Adventures in the wild west.",
-      "imgUrl": "https://picsum.photos/id/20/200/200",
+      "imgUrl": "https://cdn.mos.cms.futurecdn.net/fdp6NFwhbsGTBp6D5iNkPE-320-80.jpg",
       "actors": [
         58,
         59,
@@ -285,20 +292,6 @@
     }
   ],
   "actors": [
-    {
-      "id": 1,
-      "name": "John Doe",
-      "dateOfBirth": "1980-01-01",
-      "biography": "An acclaimed actor known for versatile roles.",
-      "profilePictureUrl": "https://i.pravatar.cc/150?img=1"
-    },
-    {
-      "id": 2,
-      "name": "Jane Smith",
-      "dateOfBirth": "1985-02-15",
-      "biography": "A prominent actress with numerous awards.",
-      "profilePictureUrl": "https://i.pravatar.cc/150?img=2"
-    },
     {
       "id": 3,
       "name": "Sam Johnson",
@@ -494,12 +487,26 @@
       "dateOfBirth": "1977-06-15",
       "biography": "An experienced actor with numerous hits.",
       "profilePictureUrl": "https://i.pravatar.cc/150?img=30"
+    },
+    {
+      "name": "aa",
+      "dateOfBirth": "9999-09-09",
+      "biography": "2424",
+      "profilePictureUrl": "https://img.vn/uploads/version/img24-png-20190726133727cbvncjKzsQ.png",
+      "id": 31
+    },
+    {
+      "name": "h",
+      "dateOfBirth": "4444-04-04",
+      "biography": "4444",
+      "profilePictureUrl": "4444",
+      "id": 32
     }
   ],
   "genres": [
     {
       "id": 1,
-      "name": "Comedy"
+      "name": "Comedyk"
     },
     {
       "id": 2,
@@ -536,14 +543,17 @@
     {
       "id": 10,
       "name": "Animation"
+    },
+    {
+      "name": "aaaaa",
+      "id": 11
+    },
+    {
+      "name": "hghh",
+      "id": 12
     }
   ],
   "favorites": [
-    {
-      "userId": 1,
-      "movieId": 1,
-      "id": 3
-    },
     {
       "userId": 2,
       "movieId": 3,

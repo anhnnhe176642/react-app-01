@@ -51,7 +51,7 @@ const AdminActorsPage = () => {
                 <td>{actor.name}</td>
                 <td>{actor.dateOfBirth}</td>
                 <td>{actor.biography}</td>
-                <td>{actor.profilePictureUrl}</td>
+                <td> <img src={actor.profilePictureUrl} width="150" height="150"/></td>
                 <td>
                   <Button
                     as={Link}

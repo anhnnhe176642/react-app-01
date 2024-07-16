@@ -81,7 +81,7 @@ const AdminMoviesPage = () => {
                 <td>{movie.id}</td>
                 <td>{movie.title}</td>
                 <td>{movie.description}</td>
-                <td>{movie.imgUrl}</td>
+                <td><img src={movie.imgUrl} alt={movie.title} width="200" height="200"></img></td>
                 <td>{getActorNames(movie.actors)}</td>
                 <td>{getGenreName(movie.genreId)}</td>
                 <td>{movie.rating}</td>
