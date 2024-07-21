@@ -6,11 +6,11 @@ import "./HomePage.css";
 import Sidebar from "../components/Sidebar";
 
 function HomePage() {
-  const { movies, searchResults } = useContext(MovieContext);
+  const { searchResults } = useContext(MovieContext);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
-  const displayMovies = searchResults.length > 0 ? searchResults : movies;
+  const displayMovies = searchResults;
 
   const indexOfLastMovie = currentPage * itemsPerPage;
   const indexOfFirstMovie = indexOfLastMovie - itemsPerPage;

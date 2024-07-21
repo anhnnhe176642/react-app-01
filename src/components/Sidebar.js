@@ -29,7 +29,6 @@ const Sidebar = () => {
       checked ? newSelected.add(value) : newSelected.delete(value);
       return newSelected;
     });
-    handleFilter();
   };
 
   const handleActorChange = (e) => {
@@ -39,12 +38,10 @@ const Sidebar = () => {
       checked ? newSelected.add(value) : newSelected.delete(value);
       return newSelected;
     });
-    handleFilter();
   };
 
   const handleRatingChange = (e) => {
     setRating(e.target.value);
-    handleFilter();
   };
 
   const handleFilter = () => {
@@ -56,6 +53,8 @@ const Sidebar = () => {
     });
     setSearchResults(filteredMovies);
   };
+
+  useEffect(handleFilter,[movies, rating, selectedActors, selectedGenres, setSearchResults]);
 
   return (
     <div className="sidebar">
