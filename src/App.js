@@ -24,7 +24,6 @@ import GenreForm from "./components/GenreForm";
 import AdminActorsPage from "./pages/AdminActorsPage";
 import ActorForm from "./components/ActorForm";
 import { Container } from "react-bootstrap";
-import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 
 const ProtectedRoute = ({ children }) => {
@@ -34,7 +33,6 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <AuthProvider>
       <Container>
         <Router>
           <Header />
@@ -65,7 +63,6 @@ function App() {
         </Router>
         <Footer />
       </Container>
-    </AuthProvider>
   );
 }
 

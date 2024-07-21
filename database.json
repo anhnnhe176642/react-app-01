@@ -4,7 +4,7 @@
       "id": 1,
       "username": "admin",
       "name": "Admin User",
-      "password": "admin123",
+      "password": "123",
       "role": "admin"
     },
     {
@@ -494,13 +494,6 @@
       "biography": "2424",
       "profilePictureUrl": "https://img.vn/uploads/version/img24-png-20190726133727cbvncjKzsQ.png",
       "id": 31
-    },
-    {
-      "name": "h",
-      "dateOfBirth": "4444-04-04",
-      "biography": "4444",
-      "profilePictureUrl": "4444",
-      "id": 32
     }
   ],
   "genres": [
@@ -543,21 +536,13 @@
     {
       "id": 10,
       "name": "Animation"
-    },
-    {
-      "name": "aaaaa",
-      "id": 11
-    },
-    {
-      "name": "hghh",
-      "id": 12
     }
   ],
   "favorites": [
     {
-      "userId": 2,
+      "userId": 1,
       "movieId": 3,
-      "id": 4
+      "id": 5
     }
   ],
   "watch-later": []
